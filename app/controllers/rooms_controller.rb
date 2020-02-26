@@ -1,5 +1,5 @@
-class RoomController < ApplicationController
-  before_action :set_room except: [:index, :new, :create] 
+class RoomsController < ApplicationController
+  before_action :set_room,  except: [:index, :new, :create] 
   before_action :authenticate_user!, except: [:show]
 
 
@@ -60,6 +60,6 @@ class RoomController < ApplicationController
   end
 
   def room_params
-    params.require(:room).permit(:home_type, :room_type, :accommodate, :bed_room, :bath_room, :listing_name, :summary :address, :is_tv, :is_kitchen, :is_air, :is_heating, :is_internet, :price, :active)
+    params.require(:room).permit(:home_type, :room_type, :accommodate, :bed_room, :bath_room, :listing_name, :summary, :address, :is_tv, :is_kitchen, :is_air, :is_heating, :is_internet, :price, :active)
   end
 end
