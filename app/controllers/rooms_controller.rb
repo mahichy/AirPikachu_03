@@ -47,7 +47,7 @@ class RoomsController < ApplicationController
     if @room.update(room_params)
       flash[:notice] = "Saved...."
       else
-        flash[:notice] = "Something went wrong....."
+        flash[:alert] = "Something went wrong....."
       end
       redirect_back(fallback_location: request.referer)
   end
