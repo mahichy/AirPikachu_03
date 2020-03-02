@@ -11,19 +11,18 @@ class RoomsController < ApplicationController
     @room =  current_user.rooms.build
   end
 
-  def create
+   def create
     @room = current_user.rooms.build(room_params)
-
     if @room.save
-      redirect_to listing_room_path(@room), notice: "Saved......"
+      redirect_to listing_room_path(@room), notice: "Saved"
     else
-      render :new, notice: "Something went wrong..............."  
-    end
-
+      flash[:alert] = "Something went wrong"
+      render :new 
+      end
   end
 
   def show
-    
+     
   end
 
   def listing 
